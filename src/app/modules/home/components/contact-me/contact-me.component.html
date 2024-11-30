@@ -1,0 +1,9 @@
+<section>
+    <h2>Contact</h2>
+    <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
+        <app-input [label]="'Firstname'" formControlName="firstName"></app-input>
+        <app-input [label]="'Lastname'" formControlName="lastName"></app-input>
+        <app-input [label]="'Email'" type="email" formControlName="email"></app-input>
+        <button type="submit">Submit</button>
+    </form>
+</section>
