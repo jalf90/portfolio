@@ -6,6 +6,10 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: 5px;
     grid-auto-flow: row;
+
+    > .span--2 {
+      grid-column: span 2;
+    }
   }
 
   h2 {

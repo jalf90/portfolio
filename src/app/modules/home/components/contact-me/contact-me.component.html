@@ -3,7 +3,7 @@
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
         <app-input [label]="'Firstname'" formControlName="firstName"></app-input>
         <app-input [label]="'Lastname'" formControlName="lastName"></app-input>
-        <app-input [label]="'Email'" type="email" formControlName="email"></app-input>
-        <button type="submit">Submit</button>
+        <app-input class="span--2" [label]="'Email'" type="email" formControlName="email"></app-input>
+        <button class="span--2 mt-1" type="submit">Submit</button>
     </form>
 </section>
