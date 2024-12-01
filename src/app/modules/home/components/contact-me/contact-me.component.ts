@@ -6,10 +6,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-me',
-  imports: [InputComponent, ReactiveFormsModule],
+  imports: [InputComponent, ReactiveFormsModule, TranslateModule],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.scss',
 })

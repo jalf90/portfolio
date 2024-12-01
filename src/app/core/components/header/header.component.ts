@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   faHome,
   IconDefinition,
   faContactCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgOptimizedImage } from '@angular/common';
+import { TranslationService } from '../../../shared/services/translation.service';
+import { AvatarComponent } from '@ui/avatar.component';
 
 interface IMenuItem {
   id: number;
@@ -31,10 +32,12 @@ const MENU_ITEMS: IMenuItem[] = [
 
 @Component({
   selector: 'app-header',
-  imports: [FontAwesomeModule, NgOptimizedImage],
+  imports: [FontAwesomeModule, AvatarComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  protected translationService = inject(TranslationService);
   protected menuItems = MENU_ITEMS;
+  protected languagesList = this.translationService.getList();
 }

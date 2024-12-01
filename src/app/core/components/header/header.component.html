@@ -1,11 +1,16 @@
 <header>
-  <nav>
-    @for (item of menuItems; track item.id) {
-      <a [href]="item.url">
-        <fa-icon [icon]="item.icon"/>
-        Home
-      </a>
-    }
-  </nav>
-  <img ngSrc="avatar.png" alt="Avatar" class="avatar" width="25" height="25">
+    <nav>
+        @for (item of menuItems; track item.id) {
+            <a [href]="item.url">
+                <fa-icon [icon]="item.icon"/>
+                {{ item.name }}
+            </a>
+        }
+    </nav>
+    <app-avatar/>
+    <ul>
+        @for (language of languagesList; track language.id) {
+            <li (click)="translationService.switchLanguage(language.code)">{{ language.name }}</li>
+        }
+    </ul>
 </header>
