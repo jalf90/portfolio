@@ -9,6 +9,7 @@
     </nav>
     <div class="flex">
         <app-avatar/>
+        <app-theme-switcher></app-theme-switcher>
         <app-menu [menuItems]="languagesList"
                   (menuItemClick)="translationService.switchLanguage($event)">{{ 'language' | translate }}
         </app-menu>

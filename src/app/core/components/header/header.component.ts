@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   faHome,
   IconDefinition,
@@ -9,6 +9,7 @@ import { TranslationService } from '../../../shared/services/translation.service
 import { AvatarComponent } from '@ui/avatar.component';
 import { MenuComponent, MenuItemProps } from '@ui/menu/menu.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ThemeSwitcherComponent } from '../theme-switcher.component';
 
 interface IMenuItem {
   id: number;
@@ -34,9 +35,17 @@ const MENU_ITEMS: IMenuItem[] = [
 
 @Component({
   selector: 'app-header',
-  imports: [FontAwesomeModule, AvatarComponent, MenuComponent, TranslatePipe],
+  imports: [
+    FontAwesomeModule,
+    AvatarComponent,
+    MenuComponent,
+    TranslatePipe,
+    ThemeSwitcherComponent,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   protected translationService = inject(TranslationService);

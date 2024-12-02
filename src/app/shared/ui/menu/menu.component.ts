@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -27,6 +28,8 @@ interface Position {
   imports: [CommonModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent<T> {
   @Input() menuItems!: MenuItemProps<T>[];
