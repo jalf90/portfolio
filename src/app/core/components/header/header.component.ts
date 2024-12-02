@@ -7,6 +7,8 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { AvatarComponent } from '@ui/avatar.component';
+import { MenuComponent, MenuItemProps } from '@ui/menu/menu.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface IMenuItem {
   id: number;
@@ -32,12 +34,19 @@ const MENU_ITEMS: IMenuItem[] = [
 
 @Component({
   selector: 'app-header',
-  imports: [FontAwesomeModule, AvatarComponent],
+  imports: [FontAwesomeModule, AvatarComponent, MenuComponent, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   protected translationService = inject(TranslationService);
   protected menuItems = MENU_ITEMS;
-  protected languagesList = this.translationService.getList();
+  protected languagesList = this.translationService.getList().map(
+    (language) =>
+      ({
+        id: language.id,
+        label: language.name,
+        value: language.code,
+      }) as MenuItemProps<string>
+  );
 }

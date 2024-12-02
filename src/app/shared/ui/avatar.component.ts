@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -9,11 +9,24 @@ import { NgOptimizedImage } from '@angular/common';
       [ngSrc]="avatar()"
       alt="Avatar"
       class="avatar"
-      width="25"
-      height="25"
+      [width]="width()"
+      [height]="height()"
     />
+  `,
+  styles: `
+    :host {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        vertical-align: middle;
+        border-radius: 50%;
+      }
+    }
   `,
 })
 export class AvatarComponent {
-  avatar = input<string>('/assets/images/avatar.png');
+  avatar: InputSignal<string> = input<string>('/assets/images/avatar.png');
+  width: InputSignal<number> = input<number>(25);
+  height: InputSignal<number> = input<number>(25);
 }

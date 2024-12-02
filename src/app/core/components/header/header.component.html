@@ -7,10 +7,10 @@
             </a>
         }
     </nav>
-    <app-avatar/>
-    <ul>
-        @for (language of languagesList; track language.id) {
-            <li (click)="translationService.switchLanguage(language.code)">{{ language.name }}</li>
-        }
-    </ul>
+    <div class="flex">
+        <app-avatar/>
+        <app-menu [menuItems]="languagesList"
+                  (menuItemClick)="translationService.switchLanguage($event)">{{ 'language' | translate }}
+        </app-menu>
+    </div>
 </header>

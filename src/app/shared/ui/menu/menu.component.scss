@@ -1,0 +1,27 @@
+:host {
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+  border: 1px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1000;
+  visibility: visible;
+  background-color: white;
+
+  button {
+    border: none;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+
+  &[hidden] {
+    visibility: hidden;
+  }
+}
