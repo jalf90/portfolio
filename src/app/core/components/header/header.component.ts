@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  faHome,
-  IconDefinition,
-  faContactCard,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHome, IconDefinition, faContactCard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { AvatarComponent } from '@ui/avatar.component';
@@ -35,13 +31,7 @@ const MENU_ITEMS: IMenuItem[] = [
 
 @Component({
   selector: 'app-header',
-  imports: [
-    FontAwesomeModule,
-    AvatarComponent,
-    MenuComponent,
-    TranslatePipe,
-    ThemeSwitcherComponent,
-  ],
+  imports: [FontAwesomeModule, AvatarComponent, MenuComponent, TranslatePipe, ThemeSwitcherComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
@@ -58,4 +48,9 @@ export class HeaderComponent {
         value: language.code,
       }) as MenuItemProps<string>
   );
+
+  handleMenuItemClick(languageCode: string) {
+    this.translationService.switchLanguage(languageCode);
+    sessionStorage.setItem('languageCode', languageCode);
+  }
 }

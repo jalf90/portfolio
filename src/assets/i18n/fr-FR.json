@@ -1,6 +1,10 @@
 {
   "submit": "Soumettre",
-  "language": "langue",
+  "language": "Langue",
   "home": "Home",
-  "contact": "Contact"
+  "contact": "Contact",
+  "theme": {
+    "dark": "Sombre",
+    "light": "Classique"
+  }
 }

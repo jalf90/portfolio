@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  Renderer2,
   signal,
   ViewChild,
   WritableSignal,
@@ -38,11 +39,15 @@ export class MenuComponent<T> {
   @ViewChild('menuContainer', { static: false }) menuContainer!: ElementRef;
   protected isMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
   menuStyles: Position = {};
+  private clickOutsideListenerCleanup?: () => void;
+
+  constructor(private renderer: Renderer2) {}
 
   toggleMenu() {
     this.isMenuOpen.set(!this.isMenuOpen());
     if (this.isMenuOpen()) {
       this.calculatePosition();
+      this.addClickOutsideListener();
     }
   }
 
@@ -80,7 +85,26 @@ export class MenuComponent<T> {
     };
   }
 
-  handleLanguageSelect(value: T): void {
+  addClickOutsideListener() {
+    setTimeout(() => {
+      this.clickOutsideListenerCleanup = this.renderer.listen('document', 'click', (event: Event) => {
+        console.log(event);
+        if (this.menuContainer && !this.menuContainer.nativeElement.contains(event.target)) {
+          this.isMenuOpen.set(false);
+          this.removeClickOutsideListener();
+        }
+      });
+    });
+  }
+
+  removeClickOutsideListener() {
+    if (this.clickOutsideListenerCleanup) {
+      this.clickOutsideListenerCleanup();
+      this.clickOutsideListenerCleanup = undefined;
+    }
+  }
+
+  handleMenuItemSelect(value: T): void {
     this.menuItemClick.emit(value);
     this.isMenuOpen.set(false);
   }

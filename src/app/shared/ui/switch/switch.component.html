@@ -1,0 +1,9 @@
+<div>
+    @if (showLabel) {
+        <span>{{ isActiveModel() ? (onLabel$ | async) : (offLabel$ | async) }}</span>
+    }
+    <label class="switch" [ngClass]="classNames" (click)="change.emit()">
+        <input type="checkbox" [(ngModel)]="isActiveModel">
+        <span class="slider round"></span>
+    </label>
+</div>

@@ -2,5 +2,9 @@
   "submit": "Submit",
   "language": "Language",
   "home": "Home",
-  "contact": "Contact"
+  "contact": "Contact",
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  }
 }

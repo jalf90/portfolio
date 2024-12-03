@@ -4,7 +4,7 @@
     </button>
     <div #menuContainer class="menu-container" [hidden]="!isMenuOpen()" [ngStyle]="menuStyles">
         @for (menuItem of menuItems; track menuItem.id) {
-            <button type="button" (click)="handleLanguageSelect(menuItem.value)">
+            <button type="button" (click)="handleMenuItemSelect(menuItem.value)">
                 {{ menuItem.label }}
             </button>
         }

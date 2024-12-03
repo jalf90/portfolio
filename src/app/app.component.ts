@@ -13,8 +13,9 @@ export class AppComponent {
   title = 'Portfolio';
 
   constructor(private translate: TranslateService) {
+    const languageCode = sessionStorage.getItem('languageCode');
     // Set default language
-    this.translate.setDefaultLang('en-US');
-    this.translate.use('en-US'); // Use a specific language
+    this.translate.setDefaultLang(languageCode ?? 'en-US');
+    this.translate.use(languageCode ?? 'en-US'); // Use a specific language
   }
 }
