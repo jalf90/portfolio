@@ -6,32 +6,11 @@ import { AvatarComponent } from '@ui/avatar.component';
 import { MenuComponent, MenuItemProps } from '@ui/menu/menu.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ThemeSwitcherComponent } from '../theme-switcher.component';
-
-interface IMenuItem {
-  id: number;
-  icon: IconDefinition;
-  name: string;
-  url: string;
-}
-
-const MENU_ITEMS: IMenuItem[] = [
-  {
-    id: 1,
-    icon: faHome,
-    name: 'Home',
-    url: '',
-  },
-  {
-    id: 2,
-    icon: faContactCard,
-    name: 'Contact',
-    url: 'contact-me',
-  },
-];
+import { NavComponent } from '@ui/nav/nav.component';
 
 @Component({
   selector: 'app-header',
-  imports: [FontAwesomeModule, AvatarComponent, MenuComponent, TranslatePipe, ThemeSwitcherComponent],
+  imports: [FontAwesomeModule, AvatarComponent, MenuComponent, TranslatePipe, ThemeSwitcherComponent, NavComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
@@ -39,7 +18,6 @@ const MENU_ITEMS: IMenuItem[] = [
 })
 export class HeaderComponent {
   protected translationService = inject(TranslationService);
-  protected menuItems = MENU_ITEMS;
   protected languagesList = this.translationService.getList().map(
     (language) =>
       ({

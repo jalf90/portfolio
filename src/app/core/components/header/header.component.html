@@ -1,12 +1,5 @@
 <header>
-    <nav>
-        @for (item of menuItems; track item.id) {
-            <a [href]="item.url">
-                <fa-icon [icon]="item.icon"/>
-                {{ item.name }}
-            </a>
-        }
-    </nav>
+    <app-nav/>
     <div class="flex">
         <app-avatar/>
         <app-theme-switcher></app-theme-switcher>

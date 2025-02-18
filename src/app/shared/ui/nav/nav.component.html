@@ -1,0 +1,11 @@
+<nav>
+    <ul>
+        @for (item of menuItems; track item.id) {
+            <li>
+                <a [routerLink]="item.url" [title]="item.name">
+                    <fa-icon [icon]="item.icon"/>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
