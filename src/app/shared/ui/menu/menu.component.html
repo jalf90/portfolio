@@ -1,12 +1,10 @@
-<div>
-    <button #menuTrigger type="button" (click)="toggleMenu()">
-        <ng-content></ng-content>
-    </button>
-    <div #menuContainer class="menu-container" [hidden]="!isMenuOpen()" [ngStyle]="menuStyles">
-        @for (menuItem of menuItems; track menuItem.id) {
-            <button type="button" (click)="handleMenuItemSelect(menuItem.value)">
-                {{ menuItem.label }}
-            </button>
-        }
-    </div>
+<button #menuTrigger type="button" (click)="toggleMenu()">
+    <ng-content></ng-content>
+</button>
+<div #menuContainer class="menu-container" [hidden]="!isMenuOpen()" [ngStyle]="menuStyles">
+    @for (menuItem of menuItems; track menuItem.id) {
+        <button type="button" (click)="handleMenuItemSelect(menuItem.value)">
+            {{ menuItem.label }}
+        </button>
+    }
 </div>
