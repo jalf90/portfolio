@@ -3,6 +3,8 @@
   "language": "Language",
   "home": "Home",
   "contact": "Contact",
+  "load": "Load",
+  "upload": "Upload",
   "theme": {
     "dark": "Dark",
     "light": "Light"

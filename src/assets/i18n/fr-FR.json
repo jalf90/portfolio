@@ -3,6 +3,8 @@
   "language": "Langue",
   "home": "Home",
   "contact": "Contact",
+  "load": "Charger",
+  "upload": "Choisir fichier",
   "theme": {
     "dark": "Sombre",
     "light": "Classique"
