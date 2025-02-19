@@ -1,19 +1,21 @@
+@use './colors';
+
 /* You can add global styles to this file, and also import other style files */
 
 /* styles.scss */
 
 /* Light theme */
 :root {
-  --primary-color: #4CAF50;
-  --background-color: #ffffff;
-  --text-color: #000000;
+  --primary-color: colors.$primary;
+  --background-color: colors.$white;
+  --text-color: colors.$black;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
   --primary-color: #6200ea;
   --background-color: #121212;
-  --text-color: #ffffff;
+  --text-color: colors.$white;
 }
 
 html, body {
@@ -53,4 +55,10 @@ button {
 
 .align-items-center {
   align-items: center;
+}
+
+.container {
+  display: flex;
+  padding: 5px;
+  height: calc(100% - 60px);
 }
