@@ -88,7 +88,6 @@ export class MenuComponent<T> {
   addClickOutsideListener() {
     setTimeout(() => {
       this.clickOutsideListenerCleanup = this.renderer.listen('document', 'click', (event: Event) => {
-        console.log(event);
         if (this.menuContainer && !this.menuContainer.nativeElement.contains(event.target)) {
           this.isMenuOpen.set(false);
           this.removeClickOutsideListener();
@@ -107,5 +106,6 @@ export class MenuComponent<T> {
   handleMenuItemSelect(value: T): void {
     this.menuItemClick.emit(value);
     this.isMenuOpen.set(false);
+    this.removeClickOutsideListener();
   }
 }
