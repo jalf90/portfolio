@@ -1,0 +1,20 @@
+<div
+        class="autocomplete"
+        (mouseleave)="showMenu.set(!this.showMenu())"
+        (mouseenter)="showMenu.set(!this.showMenu())"
+>
+    <app-input
+        #autocomplete
+        type="search"
+        [placeholder]="placeholder ?? ''"
+        [(ngModel)]="searchText"
+        (input)="filterItems()"
+    />
+    @if (showMenu()) {
+        <ul class="autocomplete-list">
+            @for (item of filteredItems(); track item) {
+                <li [innerHTML]="getValueAsString(item[key]) | highlight:searchText()" (click)="onSelect(item)"></li>
+            }
+        </ul>
+    }
+</div>

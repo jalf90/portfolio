@@ -1,0 +1,19 @@
+@use "../../../../colors" as c;
+
+.autocomplete-list {
+  list-style: none;
+  background-color: c.$gray02;
+  padding: 0;
+  border-radius: 5px;
+  margin: 0;
+
+  li {
+    padding: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: c.$gray05;
+      color: c.$white;
+    }
+  }
+}
