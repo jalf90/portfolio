@@ -1,11 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { InputComponent } from '@ui/input/input.component';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

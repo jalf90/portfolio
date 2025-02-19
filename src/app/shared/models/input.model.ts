@@ -1,19 +1,19 @@
-import {FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
-export type InputType = 'text' | 'number' | 'password' | 'email';
+export type InputType = 'text' | 'number' | 'password' | 'email' | 'search';
 type ValueType = string | number | boolean;
 
 export interface InputProps {
-  type?: InputType,
-  value?: ValueType,
-  placeholder?: string,
-  control?: FormControl,
-  formGroupName?: string,
-  controlKey?: string
+  type?: InputType;
+  value?: ValueType;
+  placeholder?: string;
+  control?: FormControl;
+  formGroupName?: string;
+  controlKey?: string;
 }
 
 export interface InputGroupProps {
-  error: string,
-  label: string
-  inputProps?: InputProps
+  error: string;
+  label: string;
+  inputProps?: InputProps;
 }
