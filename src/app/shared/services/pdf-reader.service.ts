@@ -17,7 +17,6 @@ export class PdfReaderService {
   }
 
   public async readPdf(file: File): Promise<void> {
-    debugger;
     const reader = new FileReader();
 
     reader.onload = async () => {
@@ -32,7 +31,6 @@ export class PdfReaderService {
       }
 
       this.extractedText = text; // ✅ Successfully extracted text!
-      console.log(text);
     };
 
     reader.readAsArrayBuffer(file);
