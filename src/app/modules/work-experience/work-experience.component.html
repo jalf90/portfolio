@@ -1,1 +1,15 @@
-<p>work-experience works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="upload-section">
+        <label for="fileInput">{{ 'upload' | translate }}</label>
+        <input
+                id="fileInput"
+                type="file"
+                name="filename"
+                placeholder="hello"
+                formControlName="filename"
+                accept="application/pdf"
+                (change)="onFileSelected($event)"
+        >
+    </div>
+    <button class="primary" type="submit">{{ 'load' | translate }}</button>
+</form>
